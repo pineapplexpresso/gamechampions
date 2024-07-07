@@ -1,0 +1,73 @@
+<div class="cube-container">
+  <div class="cube-scene">
+    <div class="cube">
+      <img class="cube-face front" src="https://www.gamechampions.com/media/semjsykq/bet365-bet5-get200-promo.jpg" alt="cube face">
+      <img class="cube-face back" src="https://www.gamechampions.com/media/semjsykq/bet365-bet5-get200-promo.jpg" alt="cube face">
+      <img class="cube-face right" src="https://www.gamechampions.com/media/semjsykq/bet365-bet5-get200-promo.jpg" alt="cube face">
+      <img class="cube-face left" src="https://www.gamechampions.com/media/semjsykq/bet365-bet5-get200-promo.jpg" alt="cube face">
+      <img class="cube-face top" src="https://www.gamechampions.com/media/semjsykq/bet365-bet5-get200-promo.jpg" alt="cube face">
+      <img class="cube-face bottom" src="https://www.gamechampions.com/media/semjsykq/bet365-bet5-get200-promo.jpg" alt="cube face">
+    </div>
+  </div>
+</div>
+
+<style>
+  .cube-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 250px; /* Adjusted height */
+  }
+
+  .cube-scene {
+    width: 300px; /* Ad Slot size of 300x250 */
+    height: 200px; /* Cube height */
+    perspective: 800px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .cube {
+    width: 200px; /* Cube width */
+    height: 200px; /* Cube height */
+    position: relative;
+    transform-style: preserve-3d;
+    animation: rotate 20s infinite linear reverse;
+  }
+
+  .cube-face {
+    position: absolute;
+    width: 200px; /* Cube face size of 200x200 */
+    height: 200px; /* Cube face size of 200x200 */
+    object-fit: cover;
+    cursor: pointer;
+  }
+
+  .front  { transform: translateZ(100px); }
+  .back   { transform: rotateY(180deg) translateZ(100px); }
+  .right  { transform: rotateY(90deg) translateZ(100px); }
+  .left   { transform: rotateY(-90deg) translateZ(100px); }
+  .top    { transform: rotateX(90deg) translateZ(100px); }
+  .bottom { transform: rotateX(-90deg) translateZ(100px); }
+
+  @keyframes rotate {
+    from { transform: rotateY(360deg); }
+    to   { transform: rotateY(0deg); }
+  }
+
+  .cube:hover {
+    animation-play-state: paused;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const cubeFaces = document.querySelectorAll('.cube-face');
+    cubeFaces.forEach(face => {
+      face.addEventListener('click', function () {
+        window.open('https://www.bet365.com/olp/open-account?affiliate=365_02799429', '_blank');
+      });
+    });
+  });
+</script>
