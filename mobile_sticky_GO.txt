@@ -1,0 +1,14 @@
+<div class="betting-go" id="bettingGoBanner" style="background-color:#126e51;">
+    <a href="https://www.bet365.com/olp/open-account?affiliate=365_02938432" rel="nofollow" style="display: flex; align-items: center; text-decoration: none;">
+        <img src="https://www.gamechampions.com/media/ok3jiyni/bet365-light.svg" alt="Bet365 Logo" style="width: 70px;">
+        <p style="color: white; margin: 0;">Oferta de Abertura de Conta</p>
+    </a>
+    <i class="usn_ion-ios-close-circle-outline" id="closeBannerBtn" style="cursor: pointer;"></i>
+</div>
+
+<script>
+    document.getElementById("closeBannerBtn").addEventListener("click", function(event) {
+        event.stopPropagation(); // Prevent the click event from propagating to the banner
+        document.getElementById("bettingGoBanner").style.display = "none";
+    });
+</script>
