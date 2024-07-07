@@ -1,0 +1,47 @@
+import requests
+from bs4 import BeautifulSoup
+
+def scrape_casino_bonuses(url):
+    # Send a GET request to the website
+    response = requests.get(url)
+    if response.status_code != 200:
+        print(f"Failed to retrieve the page. Status code: {response.status_code}")
+        return []
+
+    # Parse the HTML content of the page
+    soup = BeautifulSoup(response.content, 'html.parser')
+
+    # Initialize a list to store the bonuses
+    bonuses = []
+
+    # Find the relevant section of the page containing the bonus information
+    # This is just an example and will vary depending on the actual website structure
+    bonus_sections = soup.find_all('div', class_='bonus-section')
+
+    for section in bonus_sections:
+        # Extract the bonus details
+        bonus_name = section.find('h2', class_='bonus-name').get_text(strip=True)
+        bonus_amount = section.find('span', class_='bonus-amount').get_text(strip=True)
+        bonus_details = section.find('p', class_='bonus-details').get_text(strip=True)
+
+        # Store the bonus information in a dictionary
+        bonus_info = {
+            'name': bonus_name,
+            'amount': bonus_amount,
+            'details': bonus_details
+        }
+
+        # Add the dictionary to the list of bonuses
+        bonuses.append(bonus_info)
+
+    return bonuses
+
+# Example usage
+url = 'https://example.com/casino-bonuses'
+bonuses = scrape_casino_bonuses(url)
+
+for bonus in bonuses:
+    print(f"Bonus Name: {bonus['name']}")
+    print(f"Bonus Amount: {bonus['amount']}")
+    print(f"Bonus Details: {bonus['details']}")
+    print('-' * 40)
