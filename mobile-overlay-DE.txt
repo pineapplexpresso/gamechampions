@@ -1,0 +1,108 @@
+<div id="banner-overlay" class="banner-overlay">
+    <div id="offer1" class="offer">
+        <a href="https://www.bet365.com/olp/open-account?affiliate=365_02799429" rel="nofollow" target="_blank" class="offer-link">
+            <img src="https://www.gamechampions.com/media/tviafh15/bet365-light-small.svg" alt="Bet365 Logo" class="offer-logo">
+            <p class="offer-text">Wett-Credits bis zu €100</p>
+        </a>
+    </div>
+    <div id="offer2" class="offer" style="display: none;">
+        <a href="https://betway.de/bwp/sports-welcome/en-de/?utm_campaign=AFF4138962881782603&utm_medium=Affiliate&utm_source=218006" rel="nofollow" target="_blank" class="offer-link">
+            <img src="https://www.gamechampions.com/media/xnze2q22/betway_sports.png" alt="Betway Logo" class="offer-logo">
+            <p class="offer-text">Sichere 100€ als Freiwette</p>
+        </a>
+    </div>
+    <i id="closeBannerBtn" class="close-btn">X</i>
+</div>
+
+<style>
+.banner-overlay {
+    position: fixed;
+    width: 100%;
+    height: 70px;
+    background-color: rgba(26, 44, 56, 0.8);
+    color: white;
+    text-align: center;
+    z-index: 999;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 767px) {
+    .banner-overlay {
+        bottom: 60px;
+    }
+    .offer-text {
+        font-size: 17px; /* Smaller text size for mobile */
+    }
+}
+
+@media (min-width: 768px) {
+    .banner-overlay {
+        bottom: 0;
+    }
+    .offer-text {
+        font-size: 24px; /* Larger text size for larger screens */
+    }
+}
+
+.offer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10px;
+}
+
+.offer-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+}
+
+.offer-logo {
+    width: 50px; /* Uniform logo width */
+    height: auto;
+    margin-right: 10px;
+}
+
+.offer-text {
+    margin: 0;
+    font-family: Rubik, sans-serif;
+    font-weight: bold;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: white;
+}
+
+.close-btn {
+    cursor: pointer;
+    font-size: 24px;
+    margin-left: 10px;
+    color: white;
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    document.getElementById("closeBannerBtn").addEventListener("click", function(event) {
+        event.stopPropagation();
+        document.getElementById("banner-overlay").style.display = "none";
+    });
+
+    let currentOffer = 1;
+    const totalOffers = 2;
+    const offerDuration = 5000;
+
+    function rotateOffers() {
+        document.getElementById("offer1").style.display = "none";
+        document.getElementById("offer2").style.display = "none";
+        
+        currentOffer = (currentOffer % totalOffers) + 1;
+        document.getElementById(`offer${currentOffer}`).style.display = "flex";
+    }
+
+    setInterval(rotateOffers, offerDuration);
+});
+</script>

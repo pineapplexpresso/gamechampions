@@ -1,0 +1,38 @@
+<div id="mobile-overlay" style="position: fixed; bottom: 60px; width: 100%; height: 70px; background-color: rgba(26, 44, 56, 0.8); color: white; text-align: center; z-index: 999; left: 0; display: flex; align-items: center; justify-content: center;">
+    <div id="offer1" style="display: flex; align-items: center; justify-content: center; padding: 0 10px;">
+        <a href="https://www.bet365.nl/olp/open-account?affiliate=365_02799429" rel="nofollow" target="_blank" style="display: flex; align-items: center; text-decoration: none; color: white;">
+            <img src="https://www.gamechampions.com/media/tviafh15/bet365-light-small.svg" alt="Bet365 Logo" style="width: 50px; height: auto; margin-right: 10px;">
+            <p style="margin: 0; font-family: Rubik, sans-serif; font-weight: bold; white-space: nowrap; text-overflow: ellipsis; font-size: 17px;">Zet €10 in & ontvang €50 Gratis</p>
+        </a>
+    </div>
+    <div id="offer2" style="display: none; align-items: center; justify-content: center; padding: 0 10px;">
+        <a href="https://betway.com/bwp/sports-welcome/en-mt/?utm_campaign=AFF4138962881782603&utm_medium=Affiliate&utm_source=218006" rel="nofollow" target="_blank" style="display: flex; align-items: center; text-decoration: none; color: white;">
+            <img src="https://www.gamechampions.com/media/qsrdi0gr/betway_light.svg" alt="Betway Logo" style="width: 95px; height: auto; margin-right: 4px;">
+            <p style="margin: 0; font-family: Rubik, sans-serif; font-weight: bold; white-space: nowrap; text-overflow: ellipsis; font-size: 17px;">Get your $30 in Free Bets</p>
+        </a>
+    </div>
+    <i id="closeBannerBtn" style="cursor: pointer; font-size: 24px; margin-left: 10px;">X</i>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    document.getElementById("closeBannerBtn").addEventListener("click", function(event) {
+        event.stopPropagation();
+        document.getElementById("mobile-overlay").style.display = "none";
+    });
+
+    let currentOffer = 1;
+    const totalOffers = 2;
+    const offerDuration = 5000;
+
+    function rotateOffers() {
+        document.getElementById("offer1").style.display = "none";
+        document.getElementById("offer2").style.display = "none";
+        
+        currentOffer = (currentOffer % totalOffers) + 1;
+        document.getElementById(`offer${currentOffer}`).style.display = "flex";
+    }
+
+    setInterval(rotateOffers, offerDuration);
+});
+</script>
